@@ -1,0 +1,376 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"current",
+				"currentUserId"
+			],
+			[
+				"curre",
+				"currentUserId"
+			],
+			[
+				"curr",
+				"currentUserId"
+			],
+			[
+				"chatRoo",
+				"chatRoomId"
+			],
+			[
+				"chatR",
+				"ChatRoom"
+			],
+			[
+				"mess",
+				"messageObject"
+			],
+			[
+				"chatRo",
+				"chatRoomId"
+			],
+			[
+				"chat",
+				"chat_room"
+			],
+			[
+				"chatTar",
+				"chatTarget"
+			],
+			[
+				"conne",
+				"connectionId"
+			],
+			[
+				"connec",
+				"connections"
+			],
+			[
+				"connection",
+				"connection_store"
+			],
+			[
+				"connecti",
+				"connections2"
+			],
+			[
+				"connect",
+				"connection_store"
+			],
+			[
+				"con",
+				"controller_store"
+			],
+			[
+				"conn",
+				"connections"
+			],
+			[
+				"Websock",
+				"WebsocketRails"
+			],
+			[
+				"clien",
+				"client_connected"
+			],
+			[
+				"sub",
+				"subscribe"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 173.0,
+		"last_filter": "rails",
+		"selected_items":
+		[
+			[
+				"rails",
+				"Set Syntax: Ruby on Rails"
+			],
+			[
+				"rail",
+				"Set Syntax: Ruby on Rails"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"packa",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 472.0
+	},
+	"console":
+	{
+		"height": 153.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())",
+			"import urllib2,os; pf='Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( ))); open( os.path.join( ipp, pf), 'wb' ).write( urllib2.urlopen( 'http://sublime.wbond.net/' +pf.replace( ' ','%20' )).read()); print( 'Please restart Sublime Text to finish installation')"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/wenjiangtao/Study/evergroup-websocket"
+	],
+	"file_history":
+	[
+		"/home/wenjiangtao/Study/Laiber/laiber/app/controllers/websocket/chat_controller.rb",
+		"/home/wenjiangtao/Study/Laiber/laiber/app/controllers/concerns/websocket_controller.rb",
+		"/home/wenjiangtao/Study/Laiber/laiber_mobile/login.html",
+		"/home/wenjiangtao/Study/Laiber/laiber/app/models/user_connection.rb",
+		"/home/wenjiangtao/Study/Laiber/laiber/app/models/chat_room.rb",
+		"/home/wenjiangtao/Study/Laiber/laiber/app/models/chat_msg.rb",
+		"/home/wenjiangtao/Study/Laiber/laiber/app/controllers/mobile_app/posts_controller.rb",
+		"/home/wenjiangtao/Study/Laiber/laiber/app/controllers/websocket/sign_controller.rb",
+		"/home/wenjiangtao/Study/Laiber/laiber/app/models/user.rb",
+		"/home/wenjiangtao/Study/Laiber/laiber/bin/rails",
+		"/home/wenjiangtao/Study/Laiber/laiber/tmp/websocket_frontend/index.html",
+		"/home/wenjiangtao/Study/Laiber/laiber/config/events.rb",
+		"/home/wenjiangtao/Study/Laiber/laiber/config/environments/development.rb",
+		"/home/wenjiangtao/Study/Laiber/laiber/app/models/chat_user.rb",
+		"/home/wenjiangtao/Study/Laiber/laiber/Gemfile",
+		"/home/wenjiangtao/Study/Laiber/laiber/app/assets/javascripts/application.js",
+		"/home/wenjiangtao/Study/Laiber/laiber/app/controllers/ws/chat_controller.rb",
+		"/home/wenjiangtao/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/wenjiangtao/Study/Laiber/laiber/config/routes.rb",
+		"/home/wenjiangtao/Study/Laiber/laiber/app/models/post.rb",
+		"/home/wenjiangtao/Study/Laiber/laiber/app/models/concerns/model_base.rb",
+		"/home/wenjiangtao/Study/Laiber/laiber/app/models/tag.rb",
+		"/home/wenjiangtao/Study/Laiber/laiber/public/mobile_app/api.html",
+		"/home/wenjiangtao/Study/Laiber/laiber/app/controllers/mobile_app/tags_controller.rb",
+		"/home/wenjiangtao/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/wenjiangtao/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/wenjiangtao/Study/Laiber/laiber/bin/rake",
+		"/home/wenjiangtao/Study/Laiber/laiber/db/seeds.rb"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 96.0,
+		"where_history":
+		[
+			"/home/wenjiangtao/Study/Laiber/laiber"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"redis_options",
+			"redis-host",
+			"userConnection",
+			"connection_store",
+			"Messege",
+			"messege",
+			"Messege",
+			"messege",
+			"message",
+			"Message",
+			"message",
+			"chat_room_user",
+			"limit ?",
+			"limit?",
+			"limit = nil",
+			"limit("
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"controller_store",
+			"Message",
+			"message",
+			"Message",
+			"message",
+			"messege",
+			"Messege",
+			"messege",
+			"chat_user"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "evergroup-websocket.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"userconnection",
+				"app/models/user_connection.rb"
+			],
+			[
+				"user.rb",
+				"app/models/user.rb"
+			],
+			[
+				"web",
+				"config/initializers/websocket_rails.rb"
+			],
+			[
+				"rails",
+				"bin/rails"
+			],
+			[
+				"event.sr",
+				"config/events.rb"
+			],
+			[
+				"application.js",
+				"app/assets/javascripts/application.js"
+			],
+			[
+				"eve",
+				"config/events.rb"
+			],
+			[
+				"event",
+				"config/events.rb"
+			],
+			[
+				"gemfile",
+				"Gemfile"
+			],
+			[
+				"posts_contr",
+				"app/controllers/mobile_app/posts_controller.rb"
+			],
+			[
+				"tag",
+				"app/models/tag.rb"
+			],
+			[
+				"model",
+				"app/models/concerns/model_base.rb"
+			],
+			[
+				"route",
+				"config/routes.rb"
+			],
+			[
+				"seed",
+				"db/seeds.rb"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 215.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

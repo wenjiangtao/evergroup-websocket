@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>Websocket</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="./js/websocket_rails.0.0.1.min.js"></script>
+	
+
+	<script type="text/javascript">
+		var dispatcher = null;
+
+		function onClickConnect(){
+			$("#btnConnect").attr("disabled", "true");
+
+			dispatcher = new WebSocketRails("localhost:3000/websocket");
+			dispatcher.on_open = function(data){
+				console.log("Connected: ", data);
+			}
+			dispatcher.bind("chatUser.sendMsg", onChatUserSendMsg)
+			dispatcher.bind("chatRoom.create", onChatRoomCreate)
+
+		}
+
+		function onChatUserSendMsg(object){
+			console.log("chatUser.sendMsg", object);
+		}
+
+		function onChatRoomCreate(object){
+			console.log("chatRoom.create", object);
+		}
+
+		function onClickCreateUser1(){
+			$("#btnCreateUser1").attr("disabled", "true");
+			dispatcher.trigger("createUser", {name:"user1", pwd:"user1"});
+		}
+		function onClickCreateUser2(){
+			$("#btnCreateUser2").attr("disabled", "true");
+			dispatcher.trigger("createUser", {name:"user2", pwd:"user2"});
+		}
+		function onClickSignInUser1(){
+			dispatcher.trigger("signIn", {name:"user1", pwd:"user1"});
+		}
+		function onClickSignInUser2(){
+			dispatcher.trigger("signIn", {name:"user2", pwd:"user2"});
+		}
+		function onClickUser1ChatWithUser2(){
+			dispatcher.trigger("chatWith", {userIds:["558d243c7562751a56000001"]})
+		}
+		function onClickUser1SendMsgToUser2(){
+			dispatcher.trigger("sendMsg", {userId:"558d243c7562751a56000001", content:"hello"})
+		}
+
+
+	</script>
+
+	<style type="text/css">
+		body {
+			background-color: #EFEFEF;
+			color: #2E2F30;
+			text-align: center;
+			margin: 0;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<button id="btnConnect" class="btn btn-danger" onclick="onClickConnect()">Connect</button>
+		</div>
+		<br/>
+		<br/>
+		<div class="row">
+			<button id="btnCreateUser1" class="btn btn-primary" onclick="onClickCreateUser1()">CreateUser1</button>
+		</div>
+		<div class="row">
+			<button id="btnCreateUser2" class="btn btn-primary" onclick="onClickCreateUser2()">CreateUser2</button>
+		</div>
+		<br/>
+		<br/>
+		<div class="row">
+			<button id="btnSignInUser1" class="btn btn-primary" onclick="onClickSignInUser1()">SignInUser1</button>
+		</div>
+		<div class="row">
+			<button id="btnSignInUser2" class="btn btn-primary" onclick="onClickSignInUser2()">SignInUser2</button>
+		</div>
+		<br/>
+		<br/>
+		<div class="row">
+			<button id="btnUser1ChatWithUser2" class="btn btn-primary" onclick="onClickUser1ChatWithUser2()">User1ChatWithUser2</button>
+		</div>
+
+		<div class="row">
+			<button id="btnUser1SendMsgToUser2" class="btn btn-primary" onclick="onClickUser1SendMsgToUser2()">User1SendMsgToUser2</button>
+		</div>
+	</div>
+	
+</body>
+
+</html>
+
+<!-- $('#button').attr('disabled',"true");添加disabled属性 
+$('#button').removeAttr("disabled"); 移除disabled属性 -->

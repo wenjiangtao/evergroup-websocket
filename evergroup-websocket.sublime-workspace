@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"user",
+				"userConnection"
+			],
+			[
 				"current",
 				"currentUserId"
 			],
@@ -83,6 +87,74 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "Gemfile",
+			"settings":
+			{
+				"buffer_size": 1560,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/concerns/model_base.rb",
+			"settings":
+			{
+				"buffer_size": 417,
+				"line_ending": "Unix",
+				"name": "model_base.rb"
+			}
+		},
+		{
+			"file": "app/models/chat_msg.rb",
+			"settings":
+			{
+				"buffer_size": 421,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/chat_room.rb",
+			"settings":
+			{
+				"buffer_size": 425,
+				"line_ending": "Unix",
+				"name": "chat_room.rb"
+			}
+		},
+		{
+			"file": "app/models/chat_user.rb",
+			"settings":
+			{
+				"buffer_size": 774,
+				"line_ending": "Unix",
+				"name": "chat_user.rb"
+			}
+		},
+		{
+			"file": "app/controllers/concerns/websocket_controller",
+			"settings":
+			{
+				"buffer_size": 887,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/user.rb",
+			"settings":
+			{
+				"buffer_size": 441,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/models/sign_token.rb",
+			"settings":
+			{
+				"buffer_size": 159,
+				"line_ending": "Unix",
+				"name": "sign_token.rb"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -116,7 +188,7 @@
 				"Preferences: Browse Packages"
 			]
 		],
-		"width": 472.0
+		"width": 400.0
 	},
 	"console":
 	{
@@ -138,10 +210,18 @@
 	},
 	"expanded_folders":
 	[
-		"/home/wenjiangtao/Study/evergroup-websocket"
+		"/home/wenjiangtao/Study/evergroup-websocket",
+		"/home/wenjiangtao/Study/evergroup-websocket/app",
+		"/home/wenjiangtao/Study/evergroup-websocket/app/controllers",
+		"/home/wenjiangtao/Study/evergroup-websocket/app/controllers/concerns",
+		"/home/wenjiangtao/Study/evergroup-websocket/app/models",
+		"/home/wenjiangtao/Study/evergroup-websocket/app/models/concerns",
+		"/home/wenjiangtao/Study/evergroup-websocket/app/views"
 	],
 	"file_history":
 	[
+		"/home/wenjiangtao/Study/evergroup-websocket/app/models/user_connection.rb",
+		"/home/wenjiangtao/Study/evergroup-websocket/app/models/user.rb",
 		"/home/wenjiangtao/Study/Laiber/laiber/app/controllers/websocket/chat_controller.rb",
 		"/home/wenjiangtao/Study/Laiber/laiber/app/controllers/concerns/websocket_controller.rb",
 		"/home/wenjiangtao/Study/Laiber/laiber_mobile/login.html",
@@ -230,8 +310,239 @@
 	"groups":
 	[
 		{
+			"selected": 5,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "Gemfile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1560,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								972,
+								972
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/models/concerns/model_base.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 417,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								261,
+								261
+							]
+						],
+						"settings":
+						{
+							"auto_name": "model_base.rb",
+							"syntax": "Packages/Rails/Ruby on Rails.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/models/chat_msg.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 421,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								395,
+								395
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/models/chat_room.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 425,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								330,
+								330
+							]
+						],
+						"settings":
+						{
+							"auto_name": "chat_room.rb",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/models/chat_user.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 774,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								511,
+								511
+							]
+						],
+						"settings":
+						{
+							"auto_name": "chat_user.rb",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/controllers/concerns/websocket_controller",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 887,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								700,
+								700
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/Ruby on Rails.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/models/user.rb",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 441,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/models/sign_token.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 159,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								159,
+								159
+							]
+						],
+						"settings":
+						{
+							"auto_name": "sign_token.rb",
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
 			]
 		}
 	],

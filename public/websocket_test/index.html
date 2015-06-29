@@ -13,6 +13,7 @@
 
 	<script type="text/javascript">
 		var dispatcher = null;
+		var channel = null;
 
 		function onClickConnectServer1(){
 			$("#btnConnectServer1").attr("disabled", "true");
@@ -22,9 +23,13 @@
 			dispatcher.on_open = function(data){
 				console.log("Connected: ", data);
 			}
-			dispatcher.bind("chatUser.sendMsg", onChatUserSendMsg)
-			dispatcher.bind("chatRoom.create", onChatRoomCreate)
+			dispatcher.bind("onSignIn", onSignIn);
+		}
 
+		function onSignIn(object){
+			channel = dispatcher.subscribe(object.channelId);
+			channel.bind("chatUser.sendMsg", onChatUserSendMsg)
+			channel.bind("chatRoom.create", onChatRoomCreate)
 		}
 
 		function onClickConnectServer2(){
@@ -35,9 +40,7 @@
 			dispatcher.on_open = function(data){
 				console.log("Connected: ", data);
 			}
-			dispatcher.bind("chatUser.sendMsg", onChatUserSendMsg)
-			dispatcher.bind("chatRoom.create", onChatRoomCreate)
-
+			dispatcher.bind("onSignIn", onSignIn);
 		}
 
 		function onChatUserSendMsg(object){

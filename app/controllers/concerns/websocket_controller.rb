@@ -8,7 +8,7 @@ class WebsocketController < WebsocketRails::BaseController
 			connection_store[:currentUserId] = currentUserId
 		end
 		UserConnection.Create(currentUserId, connection.id)
-
+		connection.send_message("onSignIn", {"channelId": user.getId})
 		# currentUserId = User.GetCurrentUser(message[:signToken]).getId
 		# connection_store[:currentUserId] = currentUserId
 		# userConnection = UserConnection.NewUserConnection(currentUserId, connection.id)

@@ -68,7 +68,7 @@ class ChatController < WebsocketController
 				# 	puts "=====eachUserConnection.connection_id: " + eachUserConnection.connection_id
 				# 	WebsocketRails.Synchronization.find_user(eachUserConnection.connection_id).send_message(eventName, messageObject)
 				# end
-				WebsocketRails.Synchronization.find_user(eachUserConnection.connection_id).send_message(eventName, messageObject)
+				WebsocketRails::Synchronization.find_user(eachUserConnection.connection_id).send_message(eventName, messageObject)
 				# connections[eachUserConnection.connection_id].send_message(eventName, messageObject)
 			end
 		end

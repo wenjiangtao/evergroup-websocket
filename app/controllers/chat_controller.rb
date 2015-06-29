@@ -56,20 +56,20 @@ class ChatController < WebsocketController
 	def brocastMessageToChatRoom(chatRoomId, eventName, messageObject)
 		chatRoom = ChatRoom.find(chatRoomId)
 		chatRoom.chat_users.each do |eachChatUser|
-			eachChannelId = eachChatUser.user.getId
-			puts "=====eachChannelId: " + eachChannelId
-			if WebsocketRails[eachChannelId]
-				puts "=====eachEnableChannelId: " + eachChannelId
-				WebsocketRails[eachChannelId].trigger(eventName, messageObject)
-			end
-			# eachChatUser.user.user_connections.each do |eachUserConnection|
-				
-			# 	if connections[eachUserConnection.connection_id]
-			# 		puts "=====eachUserConnection.connection_id: " + eachUserConnection.connection_id
-			# 		connections[eachUserConnection.connection_id].send_message(eventName, messageObject)
-			# 	end
-			# 	# connections[eachUserConnection.connection_id].send_message(eventName, messageObject)
+			# eachChannelId = eachChatUser.user.getId
+			# puts "=====eachChannelId: " + eachChannelId
+			# if WebsocketRails[eachChannelId]
+			# 	puts "=====eachEnableChannelId: " + eachChannelId
+			# 	WebsocketRails[eachChannelId].trigger(eventName, messageObject)
 			# end
+
+			eachChatUser.user.user_connections.each do |eachUserConnection|
+				if connections[eachUserConnection.connection_id]
+					puts "=====eachUserConnection.connection_id: " + eachUserConnection.connection_id
+					connections[eachUserConnection.connection_id].send_message(eventName, messageObject)
+				end
+				# connections[eachUserConnection.connection_id].send_message(eventName, messageObject)
+			end
 		end
 	end
 

@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "mongoid", "~> 4.0.0"
 gem 'websocket-rails'
+# gem 'redis', "~> 3.2.0"
+gem 'redis', '3.2.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -43,6 +43,12 @@ class WebsocketController < WebsocketRails::BaseController
 		UserConnection.Delete(connection.id)
 	end
 
+	def clientSubscribed
+	end
+
+	def clientSubscribedToPrivate
+	end
+
 	def log(op = nil, content = nil)
 		op = op ? (" " + op.to_s) : " "
 		content = content ? content.to_s : self.to_s

@@ -57,7 +57,11 @@ class ChatController < WebsocketController
 		chatRoom = ChatRoom.find(chatRoomId)
 		chatRoom.chat_users.each do |eachChatUser|
 			eachChannelId = eachChatUser.user.getId
-			WebsocketRails[eachChannelId].trigger(eventName, messageObject)
+			puts "=====eachChannelId: " + eachChannelId
+			if WebsocketRails[eachChannelId]
+				puts "=====eachEnableChannelId: " + eachChannelId
+				WebsocketRails[eachChannelId].trigger(eventName, messageObject)
+			end
 			# eachChatUser.user.user_connections.each do |eachUserConnection|
 				
 			# 	if connections[eachUserConnection.connection_id]

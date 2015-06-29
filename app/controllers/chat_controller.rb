@@ -57,7 +57,12 @@ class ChatController < WebsocketController
 		chatRoom = ChatRoom.find(chatRoomId)
 		chatRoom.chat_users.each do |eachChatUser|
 			eachChatUser.user.user_connections.each do |eachUserConnection|
-				connections[eachUserConnection.connection_id].send_message(eventName, messageObject)
+				
+				if connections[eachUserConnection.connection_id]
+					puts "=====eachUserConnection.connection_id: " + eachUserConnection.connection_id
+					connections[eachUserConnection.connection_id].send_message(eventName, messageObject)
+				end
+				# connections[eachUserConnection.connection_id].send_message(eventName, messageObject)
 			end
 		end
 	end

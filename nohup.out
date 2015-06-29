@@ -1,0 +1,2 @@
+warning: bind_ip of 0.0.0.0 is unnecessary; listens on all ips by default
+all output going to: /var/log/mongodb/mongodb.log

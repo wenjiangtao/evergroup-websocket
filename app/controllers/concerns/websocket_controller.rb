@@ -3,43 +3,50 @@ class WebsocketController < WebsocketRails::BaseController
 		log("signIn", message.to_s)
 
 		user = User.where("name" => message[:name]).first
-		if (user.pwd == message[:pwd])
-			currentUserId = user.getId
-			connection_store[:currentUserId] = currentUserId
+		if user.pwd == message[:pwd]
+			userId = user.getId
+			connection_store[:userId] = userId
+			userChannelId = UserChannel.GetUserChannelByUser(userId).getId
+			connection_store[:userChannelId] = userChannelId
+			UserConnection.Create(userChannelId, connection.id)
+			connection.send_message("onSignIn", {"channel": userChannelId})
 		end
-		UserConnection.Create(currentUserId, connection.id)
-		connection.send_message("onSignIn", {"channelId": user.getId})
+		
 		# currentUserId = User.GetCurrentUser(message[:signToken]).getId
 		# connection_store[:currentUserId] = currentUserId
 		# userConnection = UserConnection.NewUserConnection(currentUserId, connection.id)
 	end
 
-	def createUser
-		log("createUser", message.to_s)
-		user = User.new
-		user.name = message[:name]
-		user.pwd = message[:pwd]
-		user.save
+	# def createUser
+	# 	log("createUser", message.to_s)
+	# 	user = User.new
+	# 	user.name = message[:name]
+	# 	user.pwd = message[:pwd]
+	# 	user.save
+	# end
+
+	def currentUserId
+		return connection_store[:userId]
 	end
 
-	def currentUser
-		return User.find(connection_store[:currentUserId])
-	end
+	# def currentUserChannelId
+	# 	return connection_store[:userChannelId]
+	# end
 
-	def connectionManager
-		return connection.dispatcher.connection_manager
-	end
+	# def connectionManager
+	# 	return connection.dispatcher.connection_manager
+	# end
 
-	def connections
-		return connection.dispatcher.connection_manager.connections
-	end
+	# def connections
+	# 	return connection.dispatcher.connection_manager.connections
+	# end
 
 	def clientConnected
-		log("clientConnected", message.to_s)
+		log("clientConnected", message)
 	end
 
 	def clientDisconnected
-		log("clientConnected", message.to_s)
+		log("clientDisconnected", message)
 		UserConnection.Delete(connection.id)
 	end
 
@@ -47,11 +54,14 @@ class WebsocketController < WebsocketRails::BaseController
 	end
 
 	def clientSubscribedToPrivate
+		message[:channel] == connection_store[:userChannelId] ? accept_channel : deny_channel
 	end
 
 	def log(op = nil, content = nil)
+		puts ""
 		op = op ? (" " + op.to_s) : " "
 		content = content ? content.to_s : self.to_s
 		puts "=====Log=====" + " " + self.class.to_s + op + ": " + content
+		puts ""
 	end
 end

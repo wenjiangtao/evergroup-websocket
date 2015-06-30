@@ -4,8 +4,8 @@ class ChatController < WebsocketController
 	end
 
 	def chatWith
-		log("currentUser", currentUser.to_s)
-		log("chatWith", message.to_s)
+		log("currentUserId", User.find(currentUserId))
+		log("chatWith", message)
 		if message[:userIds]
 			chatTargets = message[:userIds]
 			puts "=====chatTargets.count: " + chatTargets.count.to_s
@@ -22,7 +22,7 @@ class ChatController < WebsocketController
 				end
 				log("newChatRoomUserIds", userIds)
 				chatRoom = ChatRoom.Create(userIds)
-				brocastMessageToChatRoom(chatRoom.getId, "chatRoom.newChatRoom", {"chatRoomId": chatRoom.getId, "userIds": userIds})
+				brocastMessageToChatRoom(chatRoom.getId, "chatRoom.create", {"chatRoomId": chatRoom.getId, "userIds": userIds})
 			end
 		elsif message[:chatRoomId]
 			chatRoom = ChatRoom.find(message[:chatRoomId])
@@ -56,6 +56,11 @@ class ChatController < WebsocketController
 	def brocastMessageToChatRoom(chatRoomId, eventName, messageObject)
 		chatRoom = ChatRoom.find(chatRoomId)
 		chatRoom.chat_users.each do |eachChatUser|
+			eachUserChannel = eachChatUser.user.user_channel
+			if eachUserChannel.user_connections.count > 0
+				log("eachUserChannel", eachUserChannel)
+				WebsocketRails[eachUserChannel.getId].trigger(eventName, messageObject)
+			end
 			# eachChannelId = eachChatUser.user.getId
 			# puts "=====eachChannelId: " + eachChannelId
 			# if WebsocketRails[eachChannelId]
@@ -63,15 +68,16 @@ class ChatController < WebsocketController
 			# 	WebsocketRails[eachChannelId].trigger(eventName, messageObject)
 			# end
 
-			eachChatUser.user.user_connections.each do |eachUserConnection|
+			# eachChatUser.user.user_connections.each do |eachUserConnection|
 				# if connections[eachUserConnection.connection_id]
 				# 	puts "=====eachUserConnection.connection_id: " + eachUserConnection.connection_id
 				# 	WebsocketRails.Synchronization.find_user(eachUserConnection.connection_id).send_message(eventName, messageObject)
 				# end
 				# WebsocketRails::Synchronization.find_user(eachUserConnection.connection_id).send_message(eventName, messageObject)
-				puts WebsocketRails::Synchronization.all_users.to_s
+				# puts WebsocketRails::Synchronization.all_users.to_s
+				# puts connection.dispatcher.connection_manager.synchronization.all_users.to_s
 				# connections[eachUserConnection.connection_id].send_message(eventName, messageObject)
-			end
+			# end
 		end
 	end
 

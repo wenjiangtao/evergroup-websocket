@@ -1,12 +1,12 @@
 class UserConnection < ModelBase
 	include Mongoid::Document
 	include Mongoid::Timestamps
-	belongs_to :user
+	belongs_to :user_channel
 	field :connection_id, type: String
 
-	def self.Create(userId, connectionId)
+	def self.Create(userChannelId, connectionId)
 		userConnection = UserConnection.new
-		userConnection.user = User.find(userId)
+		userConnection.user_channel = UserChannel.find(userChannelId)
 		userConnection.connection_id = connectionId
 		userConnection.save
 		userConnection.log("Create")

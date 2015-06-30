@@ -23,15 +23,24 @@
 			dispatcher.on_open = function(data){
 				console.log("Connected: ", data);
 			}
-			// dispatcher.bind("onSignIn", onSignIn);
-			dispatcher.bind("chatUser.sendMsg", onChatUserSendMsg)
-			dispatcher.bind("chatRoom.create", onChatRoomCreate)
+			dispatcher.bind("onSignIn", onSignIn);
+			// dispatcher.bind("chatUser.sendMsg", onChatUserSendMsg)
+			// dispatcher.bind("chatRoom.create", onChatRoomCreate)
 		}
 
 		function onSignIn(object){
-			channel = dispatcher.subscribe(object.channelId);
+			console.log("onSignIn", object.channel)
+			channel = dispatcher.subscribe_private(object.channel, onAcceptChannel, onDenyChannel);
 			channel.bind("chatUser.sendMsg", onChatUserSendMsg)
 			channel.bind("chatRoom.create", onChatRoomCreate)
+		}
+
+		function onAcceptChannel(object){
+			console.log("AcceptChannel")
+		}
+
+		function onDenyChannel(object){
+			console.log("DenyChannel")
 		}
 
 		function onClickConnectServer2(){
@@ -42,9 +51,9 @@
 			dispatcher.on_open = function(data){
 				console.log("Connected: ", data);
 			}
-			// dispatcher.bind("onSignIn", onSignIn);
-			dispatcher.bind("chatUser.sendMsg", onChatUserSendMsg)
-			dispatcher.bind("chatRoom.create", onChatRoomCreate)
+			dispatcher.bind("onSignIn", onSignIn);
+			// dispatcher.bind("chatUser.sendMsg", onChatUserSendMsg)
+			// dispatcher.bind("chatRoom.create", onChatRoomCreate)
 		}
 
 		function onChatUserSendMsg(object){

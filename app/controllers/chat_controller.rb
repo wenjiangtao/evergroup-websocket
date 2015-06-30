@@ -4,7 +4,7 @@ class ChatController < WebsocketController
 	end
 
 	def chatWith
-		log("currentUserId", User.find(currentUserId))
+		log("currentUser", currentUser)
 		log("chatWith", message)
 		if message[:userIds]
 			chatTargets = message[:userIds]
@@ -32,8 +32,8 @@ class ChatController < WebsocketController
 	end
 
 	def sendMsg
-		log("currentUser", currentUser.to_s)
-		log("sendMsg", message.to_s)
+		log("currentUser", currentUser)
+		log("sendMsg", message)
 		if message[:chatRoomId]
 			chatRoom = ChatRoom.find(message[:chatRoomId])
 		elsif message[:userId]

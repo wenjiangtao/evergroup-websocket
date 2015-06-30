@@ -4,6 +4,7 @@ class WebsocketController < WebsocketRails::BaseController
 
 		user = User.where("name" => message[:name]).first
 		if user.pwd == message[:pwd]
+			log("SignSuccess")
 			userId = user.getId
 			connection_store[:userId] = userId
 			userChannelId = UserChannel.GetUserChannelByUser(userId).getId
@@ -25,8 +26,8 @@ class WebsocketController < WebsocketRails::BaseController
 	# 	user.save
 	# end
 
-	def currentUserId
-		return connection_store[:userId]
+	def currentUser
+		return User.find(connection_store[:userId])
 	end
 
 	# def currentUserChannelId
@@ -54,6 +55,7 @@ class WebsocketController < WebsocketRails::BaseController
 	end
 
 	def clientSubscribedToPrivate
+		log("clientSubscribedToPrivate", message)
 		message[:channel] == connection_store[:userChannelId] ? accept_channel : deny_channel
 	end
 

@@ -1,10 +1,10 @@
 WebsocketRails::EventMap.describe do
 
-	# namespace :websocket_rails do 
-
-	# end
-	subscribe :subscribe, to: WebsocketController, with_method: :clientSubscribed
-	subscribe :subscribe_private, to: WebsocketController, with_method: :clientSubscribedToPrivate
+	namespace :websocket_rails do 
+		subscribe :subscribe_private, to: WebsocketController, with_method: :clientSubscribedToPrivate
+	end
+	# subscribe :subscribe, to: WebsocketController, with_method: :clientSubscribed
+	
 
 	subscribe :client_connected, to: ChatController, with_method: :clientConnected
 	subscribe :client_disconnected, to: ChatController, with_method: :clientDisconnected

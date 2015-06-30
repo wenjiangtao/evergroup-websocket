@@ -15,6 +15,7 @@ class UserChannel < ModelBase
 	def self.GetUserChannelByUser(userId)
 		userChannel = User.find(userId).user_channel
 		return userChannel ? userChannel : UserChannel.Create(userId)
+	end
 
 	def self.Delete(userId)
 		userChannel = UserConnection.where(:user => User.find(userId)).first

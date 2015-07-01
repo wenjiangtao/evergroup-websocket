@@ -25,37 +25,8 @@
 				console.log("Connected: ", data);
 			}
 			dispatcher.bind("onSignIn", onSignIn);
-			// dispatcher.bind("chatUser.sendMsg", onChatUserSendMsg)
-			// dispatcher.bind("chatRoom.create", onChatRoomCreate)
-		}
-
-		function onClickConnectServer3(){
-			$("#btnConnectServer1").attr("disabled", "true");
-			$("#btnConnectServer2").attr("disabled", "true");
-			$("#btnConnectServer3").attr("disabled", "true");
-
-			dispatcher = new WebSocketRails("10.17.1.12:3000/websocket");
-			dispatcher.on_open = function(data){
-				console.log("Connected: ", data);
-			}
-			dispatcher.bind("onSignIn", onSignIn);
-			// dispatcher.bind("chatUser.sendMsg", onChatUserSendMsg)
-			// dispatcher.bind("chatRoom.create", onChatRoomCreate)
-		}
-
-		function onSignIn(object){
-			console.log("onSignIn", object.channel)
-			channel = dispatcher.subscribe(object.channel, onAcceptChannel, onDenyChannel);
-			channel.bind("chatUser.sendMsg", onChatUserSendMsg)
-			channel.bind("chatRoom.create", onChatRoomCreate)
-		}
-
-		function onAcceptChannel(object){
-			console.log("AcceptChannel")
-		}
-
-		function onDenyChannel(object){
-			console.log("DenyChannel")
+			dispatcher.bind("chatUser.sendMsg", onChatUserSendMsg)
+			dispatcher.bind("chatRoom.create", onChatRoomCreate)
 		}
 
 		function onClickConnectServer2(){
@@ -68,8 +39,39 @@
 				console.log("Connected: ", data);
 			}
 			dispatcher.bind("onSignIn", onSignIn);
-			// dispatcher.bind("chatUser.sendMsg", onChatUserSendMsg)
-			// dispatcher.bind("chatRoom.create", onChatRoomCreate)
+			dispatcher.bind("chatUser.sendMsg", onChatUserSendMsg)
+			dispatcher.bind("chatRoom.create", onChatRoomCreate)
+		}
+
+		// function onClickConnectServer3(){
+		// 	$("#btnConnectServer1").attr("disabled", "true");
+		// 	$("#btnConnectServer2").attr("disabled", "true");
+		// 	$("#btnConnectServer3").attr("disabled", "true");
+
+		// 	dispatcher = new WebSocketRails("10.17.1.12:3000/websocket");
+		// 	dispatcher.on_open = function(data){
+		// 		console.log("Connected: ", data);
+		// 	}
+		// 	dispatcher.bind("onSignIn", onSignIn);
+		// 	 dispatcher.bind("chatUser.sendMsg", onChatUserSendMsg)
+		// 	 dispatcher.bind("chatRoom.create", onChatRoomCreate)
+		// }
+
+		function onSignIn(object){
+			console.log("onSignIn", object.channel)
+			channel = dispatcher.subscribe(object.channel, onAcceptChannel, onDenyChannel);
+			// channel.bind("chatUser.sendMsg", onChatUserSendMsg)
+			// channel.bind("chatRoom.create", onChatRoomCreate)
+		}
+
+		function onAcceptChannel(object){
+			console.log("AcceptChannel")
+			channel.bind("chatUser.sendMsg", onChatUserSendMsg)
+			channel.bind("chatRoom.create", onChatRoomCreate)
+		}
+
+		function onDenyChannel(object){
+			console.log("DenyChannel")
 		}
 
 		function onChatUserSendMsg(object){

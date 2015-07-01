@@ -53,7 +53,7 @@ class WebsocketController < WebsocketRails::BaseController
 
 	def clientSubscribed
 		log("clientSubscribed", message)
-		message[:channel] == connection_store[:userChannelId] ? accept_channel : deny_channel
+		# message[:channel] == connection_store[:userChannelId] ? accept_channel : deny_channel
 	end
 
 	def clientSubscribedToPrivate
@@ -64,7 +64,7 @@ class WebsocketController < WebsocketRails::BaseController
 	def log(op = nil, content = nil)
 		puts ""
 		op = op ? (" " + op.to_s) : " "
-		content = content ? content.to_s : self.to_s
+		content = content ? content.to_json : self.to_json
 		puts "=====Log=====" + " " + self.class.to_s + op + ": " + content
 		puts ""
 	end

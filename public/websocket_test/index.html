@@ -45,7 +45,7 @@
 
 		function onSignIn(object){
 			console.log("onSignIn", object.channel)
-			channel = dispatcher.subscribe_private(object.channel, onAcceptChannel, onDenyChannel);
+			channel = dispatcher.subscribe(object.channel, onAcceptChannel, onDenyChannel);
 			channel.bind("chatUser.sendMsg", onChatUserSendMsg)
 			channel.bind("chatRoom.create", onChatRoomCreate)
 		}

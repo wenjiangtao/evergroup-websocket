@@ -18,9 +18,9 @@
 		function onClickConnectServer1(){
 			$("#btnConnectServer1").attr("disabled", "true");
 			$("#btnConnectServer2").attr("disabled", "true");
-			$("#btnConnectServer3").attr("disabled", "true");
+			// $("#btnConnectServer3").attr("disabled", "true");
 
-			dispatcher = new WebSocketRails("10.17.1.10:3000/websocket");
+			dispatcher = new WebSocketRails("10.17.1.11:3000/websocket");
 			dispatcher.on_open = function(data){
 				console.log("Connected: ", data);
 			}
@@ -32,9 +32,9 @@
 		function onClickConnectServer2(){
 			$("#btnConnectServer1").attr("disabled", "true");
 			$("#btnConnectServer2").attr("disabled", "true");
-			$("#btnConnectServer3").attr("disabled", "true");
+			// $("#btnConnectServer3").attr("disabled", "true");
 
-			dispatcher = new WebSocketRails("10.17.1.11:3000/websocket");
+			dispatcher = new WebSocketRails("10.17.1.33:3000/websocket");
 			dispatcher.on_open = function(data){
 				console.log("Connected: ", data);
 			}
@@ -43,19 +43,19 @@
 			// dispatcher.bind("chatRoom.create", onChatRoomCreate)
 		}
 
-		function onClickConnectServer3(){
-			$("#btnConnectServer1").attr("disabled", "true");
-			$("#btnConnectServer2").attr("disabled", "true");
-			$("#btnConnectServer3").attr("disabled", "true");
+		// function onClickConnectServer3(){
+		// 	$("#btnConnectServer1").attr("disabled", "true");
+		// 	$("#btnConnectServer2").attr("disabled", "true");
+		// 	$("#btnConnectServer3").attr("disabled", "true");
 
-			dispatcher = new WebSocketRails("10.17.1.12:3000/websocket");
-			dispatcher.on_open = function(data){
-				console.log("Connected: ", data);
-			}
-			dispatcher.bind("onSignIn", onSignIn);
-			// dispatcher.bind("chatUser.sendMsg", onChatUserSendMsg)
-			// dispatcher.bind("chatRoom.create", onChatRoomCreate)
-		}
+		// 	dispatcher = new WebSocketRails("10.17.1.12:3000/websocket");
+		// 	dispatcher.on_open = function(data){
+		// 		console.log("Connected: ", data);
+		// 	}
+		// 	dispatcher.bind("onSignIn", onSignIn);
+		// 	// dispatcher.bind("chatUser.sendMsg", onChatUserSendMsg)
+		// 	// dispatcher.bind("chatRoom.create", onChatRoomCreate)
+		// }
 
 		function onSignIn(object){
 			console.log("onSignIn", object.channel)
@@ -125,9 +125,9 @@
 		<div class="row">
 			<button id="btnConnectServer2" class="btn btn-danger" onclick="onClickConnectServer2()">ConnectServer2</button>
 		</div>
-		<div class="row">
+		<!-- <div class="row">
 			<button id="btnConnectServer3" class="btn btn-danger" onclick="onClickConnectServer3()">ConnectServer3</button>
-		</div>
+		</div> -->
 		<br/>
 		<br/>
 		<div class="row">

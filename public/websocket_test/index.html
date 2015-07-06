@@ -25,8 +25,8 @@
 				console.log("Connected: ", data);
 			}
 			dispatcher.bind("onSignIn", onSignIn);
-			dispatcher.bind("chatUser.sendMsg", onChatUserSendMsg)
-			dispatcher.bind("chatRoom.create", onChatRoomCreate)
+			// dispatcher.bind("chatUser.sendMsg", onChatUserSendMsg)
+			// dispatcher.bind("chatRoom.create", onChatRoomCreate)
 		}
 
 		function onClickConnectServer2(){
@@ -39,23 +39,23 @@
 				console.log("Connected: ", data);
 			}
 			dispatcher.bind("onSignIn", onSignIn);
-			dispatcher.bind("chatUser.sendMsg", onChatUserSendMsg)
-			dispatcher.bind("chatRoom.create", onChatRoomCreate)
+			// dispatcher.bind("chatUser.sendMsg", onChatUserSendMsg)
+			// dispatcher.bind("chatRoom.create", onChatRoomCreate)
 		}
 
-		// function onClickConnectServer3(){
-		// 	$("#btnConnectServer1").attr("disabled", "true");
-		// 	$("#btnConnectServer2").attr("disabled", "true");
-		// 	$("#btnConnectServer3").attr("disabled", "true");
+		function onClickConnectServer3(){
+			$("#btnConnectServer1").attr("disabled", "true");
+			$("#btnConnectServer2").attr("disabled", "true");
+			$("#btnConnectServer3").attr("disabled", "true");
 
-		// 	dispatcher = new WebSocketRails("10.17.1.12:3000/websocket");
-		// 	dispatcher.on_open = function(data){
-		// 		console.log("Connected: ", data);
-		// 	}
-		// 	dispatcher.bind("onSignIn", onSignIn);
-		// 	 dispatcher.bind("chatUser.sendMsg", onChatUserSendMsg)
-		// 	 dispatcher.bind("chatRoom.create", onChatRoomCreate)
-		// }
+			dispatcher = new WebSocketRails("10.17.1.12:3000/websocket");
+			dispatcher.on_open = function(data){
+				console.log("Connected: ", data);
+			}
+			dispatcher.bind("onSignIn", onSignIn);
+			// dispatcher.bind("chatUser.sendMsg", onChatUserSendMsg)
+			// dispatcher.bind("chatRoom.create", onChatRoomCreate)
+		}
 
 		function onSignIn(object){
 			console.log("onSignIn", object.channel)

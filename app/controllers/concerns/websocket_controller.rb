@@ -53,7 +53,8 @@ class WebsocketController < WebsocketRails::BaseController
 
 	def clientSubscribed
 		log("clientSubscribed", message)
-		# message[:channel] == connection_store[:userChannelId] ? accept_channel : deny_channel
+		message[:channel] == connection_store[:userChannelId] ? accept_channel : deny_channel
+		log("acceptChannel", message)
 	end
 
 	def clientSubscribedToPrivate

@@ -8,8 +8,8 @@ class WebsocketController < WebsocketRails::BaseController
 			userId = user.getId
 			connection_store[:userId] = userId
 			userChannel = UserChannel.GetUserChannelByUser(userId)
-			log("userChannelId", userChannel.to_json)
 			connection_store[:userChannelId] = userChannel.getId
+			log("userChannelId", connection_store[:userChannelId])
 			UserConnection.Create(userChannel.getId, connection.id)
 			connection.send_message("onSignIn", {"channel": userChannel.getId})
 		end
@@ -54,9 +54,20 @@ class WebsocketController < WebsocketRails::BaseController
 
 	def clientSubscribed
 		log("clientSubscribed", message)
-		message[:channel] == connection_store[:userChannelId] ? accept_channel : deny_channel
-		log("acceptChannel", message)
+		# log("messageChannel", message[:channel])
+		# log("connectionStoreChannel", connection_store[:userChannelId])
+		# message[:channel] == connection_store[:userChannelId] ? acceptChannel : denyChannel
 	end
+
+	# def acceptChannel
+	# 	log("acceptChannel", message)
+	# 	accept_channel(message)
+	# end
+
+	# def denyChannel
+	# 	log("denyChannel", message)
+	# 	deny_channel(message)
+	# end
 
 	def clientSubscribedToPrivate
 		log("clientSubscribedToPrivate", message)

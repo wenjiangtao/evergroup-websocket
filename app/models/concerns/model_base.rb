@@ -15,8 +15,8 @@ class ModelBase
 	end
 
 	def log(op = "", content = nil)
-		content = content ? content : self.to_s
-		puts "=====Log=====" + " " + self.class.to_s + " " + op + ": " + self.to_s
+		content = content ? content : self.to_json
+		puts "=====Log=====" + " " + self.class.to_s + " " + op + ": " + content
 	end
 end
 

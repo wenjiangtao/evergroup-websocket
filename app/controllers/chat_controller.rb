@@ -60,7 +60,8 @@ class ChatController < WebsocketController
 			if eachUserChannel.user_connections.count > 0
 				log("eachUserChannel", eachUserChannel.to_json)
 				log("eachUserChannelConnectionCount", eachUserChannel.user_connections.count)
-				WebsocketRails["eachUserChannel.getId"].trigger(eventName, messageObject)
+				eachUserChannelId = eachUserChannel.getId
+				WebsocketRails[eachUserChannelId].trigger(eventName, messageObject)
 			end
 			# eachChannelId = eachChatUser.user.getId
 			# puts "=====eachChannelId: " + eachChannelId

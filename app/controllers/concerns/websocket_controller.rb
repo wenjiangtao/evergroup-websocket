@@ -19,13 +19,13 @@ class WebsocketController < WebsocketRails::BaseController
 		# userConnection = UserConnection.NewUserConnection(currentUserId, connection.id)
 	end
 
-	# def createUser
-	# 	log("createUser", message.to_s)
-	# 	user = User.new
-	# 	user.name = message[:name]
-	# 	user.pwd = message[:pwd]
-	# 	user.save
-	# end
+	def createUser
+		log("createUser", message.to_s)
+		user = User.new
+		user.name = message[:name]
+		user.pwd = message[:pwd]
+		user.save
+	end
 
 	def currentUser
 		return User.find(connection_store[:userId])

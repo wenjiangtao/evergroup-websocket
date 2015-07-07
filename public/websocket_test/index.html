@@ -90,12 +90,20 @@
 			$("#btnCreateUser2").attr("disabled", "true");
 			dispatcher.trigger("createUser", {name:"user2", pwd:"user2"});
 		}
+		function onClickCreateUser3(){
+			$("#btnCreateUser3").attr("disabled", "true");
+			dispatcher.trigger("createUser", {name:"user3", pwd:"user3"})
+		}
 		function onClickSignInUser1(){
 			dispatcher.trigger("signIn", {name:"user1", pwd:"user1"});
 		}
 		function onClickSignInUser2(){
 			dispatcher.trigger("signIn", {name:"user2", pwd:"user2"});
 		}
+		function onClickSignInUser3(){
+			dispatcher.trigger("signIn", {name:"user3", pwd:"user3"})
+		}
+
 		function onClickUser1ChatWithUser2(){
 			dispatcher.trigger("chatWith", {userIds:["559b44bc332d7505ab000001"]})
 		}
@@ -104,6 +112,12 @@
 		}
 		function onClickUser2SendMsgToUser1(){
 			dispatcher.trigger("sendMsg", {userId:"559b44bb332d7505ab000000", content:"hello"})
+		}
+		function onClickUser2SendMsgToUser3(){
+			dispatcher.trigger("sendMsg", {userId:"559b67647562751242000000", content:"hello"})
+		}
+		function onClickUser3SendMsgToUser2(){
+			dispatcher.trigger("sendMsg", {userId:"559b44bc332d7505ab000001", content:"hello"})
 		}
 
 
@@ -139,6 +153,9 @@
 		<div class="row">
 			<button id="btnCreateUser2" class="btn btn-primary" onclick="onClickCreateUser2()">CreateUser2</button>
 		</div>
+		<div class="row">
+			<button id="btnCreateUser3" class="btn btn-primary" onclick="onClickCreateUser3()">CreateUser3</button>
+		</div>
 		<br/>
 		<br/>
 		<div class="row">
@@ -154,10 +171,16 @@
 		</div>
 
 		<div class="row">
-			<button id="btnUser1SendMsgToUser2" class="btn btn-primary" onclick="onClickUser1SendMsgToUser2()">User1SendMsgToUser2</button>
+			<button id="btnUser1SendMsgToUser2" class="btn btn-primary" onclick="onClickUser1SendMsgToUser2()">1 To 2</button>
 		</div>
 		<div class="row">
-			<button id="btnUser2SendMsgToUser1" class="btn btn-primary" onclick="onClickUser2SendMsgToUser1()">User2SendMsgToUser1</button>
+			<button id="btnUser2SendMsgToUser1" class="btn btn-primary" onclick="onClickUser2SendMsgToUser1()">2 To 1</button>
+		</div>
+		<div class="row">
+			<button id="btnUser2SendMsgToUser3" class="btn btn-primary" onclick="onClickUser2SendMsgToUser3()">2 To 3</button>
+		</div>
+		<div class="row">
+			<button id="btnUser3SendMsgToUser2" class="btn btn-primary" onclick="onClickUser3SendMsgToUser2()">3 To 2</button>
 		</div>
 	</div>
 	

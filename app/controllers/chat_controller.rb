@@ -40,6 +40,9 @@ class ChatController < WebsocketController
 			chatRoom = getChatRoomIdOfSingleUser(message[:userId])
 			puts "====chatRoom: " + chatRoom.to_json
 			if chatRoom == nil
+				chatTargets = []
+				chatTargets.push(message[:userId])
+				chatTargets.push(currentUser.getId)
 				chatRoom = ChatRoom.Create(chatTargets)
 				brocastMessageToChatRoom(chatRoom.getId, "chatRoom.create", {"chatRoomId": chatRoom.getId, "userIds": message[:userIds]})
 			end

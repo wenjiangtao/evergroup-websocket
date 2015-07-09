@@ -12,12 +12,17 @@ class WebsocketController < WebsocketRails::BaseController
 			log("userChannelId", connection_store[:userChannelId])
 			UserConnection.Create(userChannel.getId, connection.id)
 			connection.send_message("onSignIn", {"channel": userChannel.getId})
-
-			User.each do |eachUser|
-				eachUser.user_channel.user_connections.each do |eachUserConnection|
-					WebsocketRails.users[eachUserConnection.connection_id].send_message("userSignIn", {"user": user.to_json})
-				end
-			end
+			# User.each do |eachUser|
+			# 	eachUser.user_channel.user_connections.each do |eachUserConnection|
+			# 		WebsocketRails.users[eachUserConnection.connection_id].send_message("userSignIn", {"user": user.to_json})
+			# 	end
+			# end
+			# WebsocketRails.users.each do |eachUser|
+			# 	log("user", eachUser)
+			# end
+			log("connections", connection.dispatcher.connection_manager.connections)
+			log("users", WebsocketRails.users[connection.id])
+			log("user", connection.user)
 		end
 		
 		# currentUserId = User.GetCurrentUser(message[:signToken]).getId

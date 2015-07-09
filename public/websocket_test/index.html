@@ -29,6 +29,7 @@
 				console.log("Connected: ", data);
 			}
 			dispatcher.bind("onSignIn", onSignIn);
+			dispatcher.bind("userSignIn", onUserSignIn)
 			// dispatcher.bind("chatUser.sendMsg", onChatUserSendMsg)
 			// dispatcher.bind("chatRoom.create", onChatRoomCreate)
 		}

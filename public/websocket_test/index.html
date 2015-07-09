@@ -15,6 +15,10 @@
 		var dispatcher = null;
 		var channel = null;
 
+		var user1ID = "559b6a97332d7506c1000012";
+		var user2ID = "559b6a99332d7506c1000013";
+		var user3ID = "559b6a99332d7506c1000014";
+
 		function onClickConnectServer1(){
 			$("#btnConnectServer1").attr("disabled", "true");
 			$("#btnConnectServer2").attr("disabled", "true");
@@ -39,8 +43,13 @@
 				console.log("Connected: ", data);
 			}
 			dispatcher.bind("onSignIn", onSignIn);
+			dispatcher.bind("userSignIn", onUserSignIn)
 			// dispatcher.bind("chatUser.sendMsg", onChatUserSendMsg)
 			// dispatcher.bind("chatRoom.create", onChatRoomCreate)
+		}
+
+		function onUserSignIn(object){
+			console.log("userSignIn", object)
 		}
 
 		// function onClickConnectServer3(){
@@ -95,29 +104,47 @@
 			dispatcher.trigger("createUser", {name:"user3", pwd:"user3"})
 		}
 		function onClickSignInUser1(){
+			$("btnUser3SendMsgToUser1").attr("disabled", "true");
+			$("btnUser3SendMsgToUser2").attr("disabled", "true");
+			$("btnUser2SendMsgToUser1").attr("disabled", "true");
+			$("btnUser2SendMsgToUser3").attr("disabled", "true");
 			dispatcher.trigger("signIn", {name:"user1", pwd:"user1"});
+			
 		}
 		function onClickSignInUser2(){
+			$("btnUser3SendMsgToUser1").attr("disabled", "true");
+			$("btnUser3SendMsgToUser2").attr("disabled", "true");
+			$("btnUser1SendMsgToUser2").attr("disabled", "true");
+			$("btnUser1SendMsgToUser3").attr("disabled", "true");
 			dispatcher.trigger("signIn", {name:"user2", pwd:"user2"});
+			
 		}
 		function onClickSignInUser3(){
+			$("btnUser2SendMsgToUser3").attr("disabled", "true");
+			$("btnUser2SendMsgToUser1").attr("disabled", "true");
+			$("btnUser1SendMsgToUser2").attr("disabled", "true");
+			$("btnUser1SendMsgToUser3").attr("disabled", "true");
 			dispatcher.trigger("signIn", {name:"user3", pwd:"user3"})
+			
 		}
 
-		function onClickUser1ChatWithUser2(){
-			dispatcher.trigger("chatWith", {userIds:["559b44bc332d7505ab000001"]})
-		}
 		function onClickUser1SendMsgToUser2(){
-			dispatcher.trigger("sendMsg", {userId:"559b44bc332d7505ab000001", content:"hello"})
+			dispatcher.trigger("sendMsg", {userId: user2ID, content:"hello"})
 		}
 		function onClickUser2SendMsgToUser1(){
-			dispatcher.trigger("sendMsg", {userId:"559b44bb332d7505ab000000", content:"hello"})
+			dispatcher.trigger("sendMsg", {userId: user1ID, content:"hello"})
 		}
 		function onClickUser2SendMsgToUser3(){
-			dispatcher.trigger("sendMsg", {userId:"559b67647562751242000000", content:"hello"})
+			dispatcher.trigger("sendMsg", {userId: user3ID, content:"hello"})
 		}
 		function onClickUser3SendMsgToUser2(){
-			dispatcher.trigger("sendMsg", {userId:"559b44bc332d7505ab000001", content:"hello"})
+			dispatcher.trigger("sendMsg", {userId: user2ID, content:"hello"})
+		}
+		function onClickUser1SendMsgToUser3(){
+			dispatcher.trigger("sendMsg", {userId: user3ID, content:"hello"})
+		}
+		function onClickUser3SendMsgToUser1(){
+			dispatcher.trigger("sendMsg", {userId: user1ID, content:"hello"})
 		}
 
 
@@ -169,9 +196,6 @@
 		</div>
 		<br/>
 		<br/>
-		<div class="row">
-			<button id="btnUser1ChatWithUser2" class="btn btn-primary" onclick="onClickUser1ChatWithUser2()">User1ChatWithUser2</button>
-		</div>
 
 		<div class="row">
 			<button id="btnUser1SendMsgToUser2" class="btn btn-primary" onclick="onClickUser1SendMsgToUser2()">1 To 2</button>
@@ -184,6 +208,12 @@
 		</div>
 		<div class="row">
 			<button id="btnUser3SendMsgToUser2" class="btn btn-primary" onclick="onClickUser3SendMsgToUser2()">3 To 2</button>
+		</div>
+		<div class="row">
+			<button id="btnUser1SendMsgToUser3" class="btn btn-primary" onclick="onClickUser1SendMsgToUser3()">1 To 3</button>
+		</div>
+		<div class="row">
+			<button id="btnUser3SendMsgToUser1" class="btn btn-primary" onclick="onClickUser3SendMsgToUser1()">3 To 1</button>
 		</div>
 	</div>
 	

@@ -66,23 +66,6 @@ class ChatController < WebsocketController
 				eachUserChannelId = eachUserChannel.getId
 				WebsocketRails[eachUserChannelId].trigger(eventName, messageObject)
 			end
-			# eachChannelId = eachChatUser.user.getId
-			# puts "=====eachChannelId: " + eachChannelId
-			# if WebsocketRails[eachChannelId]
-			# 	puts "=====eachEnableChannelId: " + eachChannelId
-			# 	WebsocketRails[eachChannelId].trigger(eventName, messageObject)
-			# end
-
-			# eachChatUser.user.user_connections.each do |eachUserConnection|
-				# if connections[eachUserConnection.connection_id]
-				# 	puts "=====eachUserConnection.connection_id: " + eachUserConnection.connection_id
-				# 	WebsocketRails.Synchronization.find_user(eachUserConnection.connection_id).send_message(eventName, messageObject)
-				# end
-				# WebsocketRails::Synchronization.find_user(eachUserConnection.connection_id).send_message(eventName, messageObject)
-				# puts WebsocketRails::Synchronization.all_users.to_s
-				# puts connection.dispatcher.connection_manager.synchronization.all_users.to_s
-				# connections[eachUserConnection.connection_id].send_message(eventName, messageObject)
-			# end
 		end
 	end
 

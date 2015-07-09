@@ -21,8 +21,8 @@ class WebsocketController < WebsocketRails::BaseController
 			# 	log("user", eachUser)
 			# end
 			log("connections", connection.dispatcher.connection_manager.connections)
-			log("users", WebsocketRails.users[connection.id])
-			log("user", connection.user)
+			log("synchronization", connection.dispatcher.connection_manager.synchronization)
+			log("all_users", connection.dispatcher.connection_manager.synchronization.all_users)
 		end
 		
 		# currentUserId = User.GetCurrentUser(message[:signToken]).getId

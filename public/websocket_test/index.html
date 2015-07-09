@@ -24,7 +24,7 @@
 			$("#btnConnectServer2").attr("disabled", "true");
 			// $("#btnConnectServer3").attr("disabled", "true");
 
-			dispatcher = new WebSocketRails("10.17.1.33:3000/websocket");
+			dispatcher = new WebSocketRails("10.17.1.11:3000/websocket");
 			dispatcher.on_open = function(data){
 				console.log("Connected: ", data);
 			}
@@ -39,7 +39,7 @@
 			$("#btnConnectServer2").attr("disabled", "true");
 			// $("#btnConnectServer3").attr("disabled", "true");
 
-			dispatcher = new WebSocketRails("10.17.1.34:3000/websocket");
+			dispatcher = new WebSocketRails("10.17.1.33:3000/websocket");
 			dispatcher.on_open = function(data){
 				console.log("Connected: ", data);
 			}
